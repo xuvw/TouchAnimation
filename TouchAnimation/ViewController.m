@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIView+HKTouchAnimationExts.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor whiteColor];//[UIColor colorWithRed:0.1 green:0.2 blue:0.2 alpha:1];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -13,6 +13,7 @@
 		ADE1463C1C5B25B1007E96F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1463A1C5B25B1007E96F7 /* Main.storyboard */; };
 		ADE1463E1C5B25B1007E96F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE1463D1C5B25B1007E96F7 /* Assets.xcassets */; };
 		ADE146411C5B25B1007E96F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1463F1C5B25B1007E96F7 /* LaunchScreen.storyboard */; };
+		ADE1464B1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1464A1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		ADE1463D1C5B25B1007E96F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADE146401C5B25B1007E96F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADE146421C5B25B1007E96F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADE146491C5B2606007E96F7 /* UIView+HKTouchAnimationExts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HKTouchAnimationExts.h"; sourceTree = "<group>"; };
+		ADE1464A1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HKTouchAnimationExts.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		ADE146301C5B25B1007E96F7 /* TouchAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				ADE146481C5B25D5007E96F7 /* HKTouchAnimation */,
 				ADE146341C5B25B1007E96F7 /* AppDelegate.h */,
 				ADE146351C5B25B1007E96F7 /* AppDelegate.m */,
 				ADE146371C5B25B1007E96F7 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				ADE146321C5B25B1007E96F7 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADE146481C5B25D5007E96F7 /* HKTouchAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				ADE146491C5B2606007E96F7 /* UIView+HKTouchAnimationExts.h */,
+				ADE1464A1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m */,
+			);
+			path = HKTouchAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +164,7 @@
 			files = (
 				ADE146391C5B25B1007E96F7 /* ViewController.m in Sources */,
 				ADE146361C5B25B1007E96F7 /* AppDelegate.m in Sources */,
+				ADE1464B1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m in Sources */,
 				ADE146331C5B25B1007E96F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +276,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TouchAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhk.ios.TouchAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TouchAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhk.ios.TouchAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
