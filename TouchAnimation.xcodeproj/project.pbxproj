@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AD3BEC9F1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3BEC9E1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m */; };
+		AD3BECA21C5F0BB600CF7375 /* UIControl+HKTouchExts.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3BECA11C5F0BB600CF7375 /* UIControl+HKTouchExts.m */; };
+		AD3BECA51C5F104400CF7375 /* UIView+HKTouchExts.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3BECA41C5F104400CF7375 /* UIView+HKTouchExts.m */; };
 		ADE146331C5B25B1007E96F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE146321C5B25B1007E96F7 /* main.m */; };
 		ADE146361C5B25B1007E96F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE146351C5B25B1007E96F7 /* AppDelegate.m */; };
 		ADE146391C5B25B1007E96F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE146381C5B25B1007E96F7 /* ViewController.m */; };
@@ -19,6 +21,10 @@
 /* Begin PBXFileReference section */
 		AD3BEC9D1C5F05EB00CF7375 /* UIResponder+HKTouchExts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+HKTouchExts.h"; sourceTree = "<group>"; };
 		AD3BEC9E1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+HKTouchExts.m"; sourceTree = "<group>"; };
+		AD3BECA01C5F0BB600CF7375 /* UIControl+HKTouchExts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+HKTouchExts.h"; sourceTree = "<group>"; };
+		AD3BECA11C5F0BB600CF7375 /* UIControl+HKTouchExts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+HKTouchExts.m"; sourceTree = "<group>"; };
+		AD3BECA31C5F104400CF7375 /* UIView+HKTouchExts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HKTouchExts.h"; sourceTree = "<group>"; };
+		AD3BECA41C5F104400CF7375 /* UIView+HKTouchExts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HKTouchExts.m"; sourceTree = "<group>"; };
 		ADE1462E1C5B25B1007E96F7 /* TouchAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE146321C5B25B1007E96F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADE146341C5B25B1007E96F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,6 +94,10 @@
 			children = (
 				AD3BEC9D1C5F05EB00CF7375 /* UIResponder+HKTouchExts.h */,
 				AD3BEC9E1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m */,
+				AD3BECA01C5F0BB600CF7375 /* UIControl+HKTouchExts.h */,
+				AD3BECA11C5F0BB600CF7375 /* UIControl+HKTouchExts.m */,
+				AD3BECA31C5F104400CF7375 /* UIView+HKTouchExts.h */,
+				AD3BECA41C5F104400CF7375 /* UIView+HKTouchExts.m */,
 			);
 			path = HKTouchAnimation;
 			sourceTree = "<group>";
@@ -162,10 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3BECA21C5F0BB600CF7375 /* UIControl+HKTouchExts.m in Sources */,
 				ADE146391C5B25B1007E96F7 /* ViewController.m in Sources */,
 				ADE146361C5B25B1007E96F7 /* AppDelegate.m in Sources */,
 				AD3BEC9F1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m in Sources */,
 				ADE146331C5B25B1007E96F7 /* main.m in Sources */,
+				AD3BECA51C5F104400CF7375 /* UIView+HKTouchExts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
