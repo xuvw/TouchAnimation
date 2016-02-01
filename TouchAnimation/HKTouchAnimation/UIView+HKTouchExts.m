@@ -23,16 +23,6 @@
     return n.boolValue;
 }
 
-//stote the animation layer weak reference
-- (void)setHkTouchAnimationLayer:(CAShapeLayer *)layer {
-    objc_setAssociatedObject(self, _cmd, layer, OBJC_ASSOCIATION_ASSIGN);
-}
-
-- (CAShapeLayer *)hkTouchAnimationLayer {
-    CAShapeLayer *l = objc_getAssociatedObject(self, @selector(setHkTouchAnimationLayer:));
-    return l;
-}
-
 - (void)addTouchAnimationWithTouchPoint:(CGPoint)touchPoint {
     UIView *viewSelf = (UIView *)self;
     
@@ -47,7 +37,9 @@
     
     [viewSelf.layer addSublayer:layer];
     viewSelf.layer.masksToBounds = YES;
-    [layer addAnimation:[self hkTouchAnimation] forKey:@"hkTouchAnimation"];
+    CAAnimation *animation = [self hkTouchAnimation];
+    animation.delegate = layer;
+    [layer addAnimation:animation forKey:@"hkTouchAnimation"];
 }
 
 - (UIColor *)randomColor {
@@ -86,16 +78,7 @@
     animationGroup.duration = 0.8;
     animationGroup.repeatCount = 1;
     animationGroup.removedOnCompletion = NO;
-    animationGroup.delegate = self;
     return animationGroup;
-}
-
-- (void)animationDidStart:(CAAnimation *)anim {
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    [[self hkTouchAnimationLayer] removeAnimationForKey:@"hkTouchAnimation"];
-    [[self hkTouchAnimationLayer] removeFromSuperlayer];
 }
 
 @end
