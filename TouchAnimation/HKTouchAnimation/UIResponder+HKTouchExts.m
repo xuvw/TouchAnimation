@@ -1,51 +1,18 @@
 //
-//  UIView+HKTouchAnimationExts.m
-//  TouchAnimation
+//  UIResponder+HKTouchExts.m
+//  LXDEventChain
 //
-//  Created by heke on 29/1/16.
-//  Copyright © 2016年 mhk. All rights reserved.
+//  Created by heke on 1/2/16.
+//  Copyright © 2016年 滕雪. All rights reserved.
 //
 
-#import "UIView+HKTouchAnimationExts.h"
+#import "UIResponder+HKTouchExts.h"
 #import <objc/runtime.h>
 
-@implementation UIView (HKTouchAnimationExts)
+@implementation UIResponder (HKTouchExts)
 
-+ (void)load {
-    Method origin = class_getInstanceMethod([UIView class], @selector(touchesEnded:withEvent:));
-    Method dest   = class_getInstanceMethod([UIView class], @selector(hk_touchesEnded:withEvent:));
-    method_exchangeImplementations(origin, dest);
-    
-    origin = class_getInstanceMethod([UIView class], @selector(touchesBegan:withEvent:));
-    dest = class_getInstanceMethod([UIView class], @selector(hk_touchesBegan:withEvent:));
-    method_exchangeImplementations(origin, dest);
-    
-    origin = class_getInstanceMethod([UIView class], @selector(touchesMoved:withEvent:));
-    dest = class_getInstanceMethod([UIView class], @selector(hk_touchesMoved:withEvent:));
-    method_exchangeImplementations(origin, dest);
-}
-
-- (void)hk_touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self hk_touchesBegan:touches withEvent:event];
-}
-
-- (void)hk_touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self hk_touchesMoved:touches withEvent:event];
-    
-    UITouch *aT = [touches anyObject];
-    CGPoint p = [aT locationInView:self];
-    [self addTouchAnimationWithTouchPoint:p];
-}
-
-- (void)hk_touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self hk_touchesEnded:touches withEvent:event];
-    
-    UITouch *aT = [touches anyObject];
-    CGPoint p = [aT locationInView:self];
-    [self addTouchAnimationWithTouchPoint:p];
-}
-
-#pragma mark - private 
+#pragma mark - Custom behave
+#pragma mark - private
 - (void)setEnableTouchAnimation:(BOOL)enableTouchAnimation {
     objc_setAssociatedObject(self, _cmd, [NSNumber numberWithBool:enableTouchAnimation], OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
@@ -69,6 +36,8 @@
 }
 
 - (void)addTouchAnimationWithTouchPoint:(CGPoint)touchPoint {
+    UIView *viewSelf = (UIView *)self;
+    
     CGRect rt = CGRectMake(touchPoint.x, touchPoint.y, 2, 2);
     
     CAShapeLayer *layer = [CAShapeLayer layer];
@@ -78,8 +47,8 @@
     UIBezierPath *bpath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 2, 2)];
     layer.path = bpath.CGPath;
     
-    [self.layer addSublayer:layer];
-    self.layer.masksToBounds = YES;
+    [viewSelf.layer addSublayer:layer];
+    viewSelf.layer.masksToBounds = YES;
     [layer addAnimation:[self hkTouchAnimation] forKey:@"hkTouchAnimation"];
 }
 
@@ -92,15 +61,16 @@
 }
 
 - (CAAnimation *)hkTouchAnimation {
+    UIView *viewSelf = (UIView *)self;
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     
     animation.repeatCount = 1;
     animation.autoreverses = NO;
     
     animation.fromValue = [NSNumber numberWithFloat:1.0];
-    CGFloat v = self.bounds.size.width;
-    if (v<self.bounds.size.height) {
-        v = self.bounds.size.height;
+    CGFloat v = viewSelf.bounds.size.width;
+    if (v<viewSelf.bounds.size.height) {
+        v = viewSelf.bounds.size.height;
     }
     animation.toValue = [NSNumber numberWithFloat:1.5*v/2.0];
     animation.fillMode = kCAFillModeForwards;
@@ -130,20 +100,54 @@
     [[self hkTouchAnimationLayer] removeFromSuperlayer];
 }
 
-@end
+#pragma mark - private methods
 
-@implementation UIViewController (HKTouchAnimationExts)
++ (void)load {
+    Method origin = class_getInstanceMethod([self class], @selector(touchesBegan:withEvent:));
+    Method dest   = class_getInstanceMethod([self class], @selector(hk_touchesBegan:withEvent:));
+    method_exchangeImplementations(origin, dest);
+    
+    origin = class_getInstanceMethod([self class], @selector(touchesMoved:withEvent:));
+    dest   = class_getInstanceMethod([self class], @selector(hk_touchesMoved:withEvent:));
+    method_exchangeImplementations(origin, dest);
+    
+    origin = class_getInstanceMethod([self class], @selector(touchesEnded:withEvent:));
+    dest   = class_getInstanceMethod([self class], @selector(hk_touchesEnded:withEvent:));
+    method_exchangeImplementations(origin, dest);
+    
+    origin = class_getInstanceMethod([self class], @selector(touchesCancelled:withEvent:));
+    dest   = class_getInstanceMethod([self class], @selector(hk_touchesCancelled:withEvent:));
+    method_exchangeImplementations(origin, dest);
+}
 
 - (void)hk_touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    //
+    [self hk_touchesBegan:touches withEvent:event];
+    NSLog(@"object:%@,touch Func:%@",[self class],@"hk_touchesBegan");
 }
 
 - (void)hk_touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    //
+    [self hk_touchesMoved:touches withEvent:event];
+    NSLog(@"object:%@,touch Func:%@",[self class],@"hk_touchesMoved");
+    if ([self isKindOfClass:[UIView class]]) {
+        UITouch *aT = [touches anyObject];
+        CGPoint p = [aT locationInView:(UIView *)self];
+        [self addTouchAnimationWithTouchPoint:p];
+    }
 }
 
 - (void)hk_touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    //
+    [self hk_touchesEnded:touches withEvent:event];
+    NSLog(@"object:%@,touch Func:%@",[self class],@"hk_touchesEnded");
+    if ([self isKindOfClass:[UIView class]]) {
+        UITouch *aT = [touches anyObject];
+        CGPoint p = [aT locationInView:(UIView *)self];
+        [self addTouchAnimationWithTouchPoint:p];
+    }
+}
+
+- (void)hk_touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self hk_touchesCancelled:touches withEvent:event];
+    NSLog(@"object:%@,touch Func:%@",[self class],@"hk_touchesCancelled");
 }
 
 @end

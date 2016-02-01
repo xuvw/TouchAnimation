@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UIView+HKTouchAnimationExts.h"
 
 @interface ViewController ()
 

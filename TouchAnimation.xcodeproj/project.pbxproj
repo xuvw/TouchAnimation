@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD3BEC9F1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3BEC9E1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m */; };
 		ADE146331C5B25B1007E96F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE146321C5B25B1007E96F7 /* main.m */; };
 		ADE146361C5B25B1007E96F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE146351C5B25B1007E96F7 /* AppDelegate.m */; };
 		ADE146391C5B25B1007E96F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE146381C5B25B1007E96F7 /* ViewController.m */; };
 		ADE1463C1C5B25B1007E96F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1463A1C5B25B1007E96F7 /* Main.storyboard */; };
 		ADE1463E1C5B25B1007E96F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE1463D1C5B25B1007E96F7 /* Assets.xcassets */; };
 		ADE146411C5B25B1007E96F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE1463F1C5B25B1007E96F7 /* LaunchScreen.storyboard */; };
-		ADE1464B1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE1464A1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD3BEC9D1C5F05EB00CF7375 /* UIResponder+HKTouchExts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+HKTouchExts.h"; sourceTree = "<group>"; };
+		AD3BEC9E1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+HKTouchExts.m"; sourceTree = "<group>"; };
 		ADE1462E1C5B25B1007E96F7 /* TouchAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE146321C5B25B1007E96F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ADE146341C5B25B1007E96F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,8 +29,6 @@
 		ADE1463D1C5B25B1007E96F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADE146401C5B25B1007E96F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADE146421C5B25B1007E96F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADE146491C5B2606007E96F7 /* UIView+HKTouchAnimationExts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HKTouchAnimationExts.h"; sourceTree = "<group>"; };
-		ADE1464A1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HKTouchAnimationExts.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 		ADE146481C5B25D5007E96F7 /* HKTouchAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				ADE146491C5B2606007E96F7 /* UIView+HKTouchAnimationExts.h */,
-				ADE1464A1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m */,
+				AD3BEC9D1C5F05EB00CF7375 /* UIResponder+HKTouchExts.h */,
+				AD3BEC9E1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m */,
 			);
 			path = HKTouchAnimation;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 			files = (
 				ADE146391C5B25B1007E96F7 /* ViewController.m in Sources */,
 				ADE146361C5B25B1007E96F7 /* AppDelegate.m in Sources */,
-				ADE1464B1C5B2606007E96F7 /* UIView+HKTouchAnimationExts.m in Sources */,
+				AD3BEC9F1C5F05EB00CF7375 /* UIResponder+HKTouchExts.m in Sources */,
 				ADE146331C5B25B1007E96F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +314,7 @@
 				ADE146471C5B25B1007E96F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
